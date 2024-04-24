@@ -26,19 +26,15 @@ class BasePage:
 
     # Кликаем на элемент
     def click_element(self, locator):
-        self.driver.find_element(*locator).click()
+        self.find_element(locator).click()
 
     # Вводим текст в поле
     def set_value(self, locator, value):
-        self.driver.find_element(*locator).send_keys(value)
-
-    # Получаем текст в поле
-    def check_text(self, locator):
-        return self.driver.find_element(*locator).text
+        self.find_element(locator).send_keys(value)
 
     # Прокручиваем страницу до элемента
     def scroll_to_element(self, locator):
-        element = self.driver.find_element(*locator)
+        element = self.find_element(locator)
         self.driver.execute_script("arguments[0].scrollIntoView();", element)
 
     # Переключаемся на новую вкладку
